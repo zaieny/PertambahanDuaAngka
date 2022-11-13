@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author HP
@@ -37,9 +39,9 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         hasilTF = new javax.swing.JTextField();
-        tamabahBtn = new javax.swing.JButton();
         hapusBtn = new javax.swing.JButton();
         keluarBtn = new javax.swing.JButton();
+        tambahBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,11 +129,16 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
-        tamabahBtn.setText("Tambah");
-
         hapusBtn.setText("Hapus");
 
         keluarBtn.setText("Keluar");
+
+        tambahBtn.setText("Tambah");
+        tambahBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,9 +148,9 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(tamabahBtn)
-                .addGap(102, 102, 102)
+                .addGap(52, 52, 52)
+                .addComponent(tambahBtn)
+                .addGap(93, 93, 93)
                 .addComponent(hapusBtn)
                 .addGap(76, 76, 76)
                 .addComponent(keluarBtn)
@@ -158,11 +165,10 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(hapusBtn)
-                        .addComponent(keluarBtn))
-                    .addComponent(tamabahBtn)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hapusBtn)
+                    .addComponent(keluarBtn)
+                    .addComponent(tambahBtn)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,7 +191,20 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
 
     private void angkaPertamaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angkaPertamaTFActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_angkaPertamaTFActionPerformed
+
+    private void tambahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBtnActionPerformed
+       if(angkaPertamaTF.getText().equals("")|| angkaKeduaTF.getText().equals("")){
+           JOptionPane.showMessageDialog(null, "infut tidak kosong");
+       }else{
+           int angkaPertama = Integer.valueOf(angkaPertamaTF.getText());
+           int angkaKedua = Integer.parseInt(angkaKeduaTF.getText());
+           int hasil = angkaPertama +angkaKedua;
+           hasilTF.setText(Integer.toString(hasil));
+       }
+       
+    }//GEN-LAST:event_tambahBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,6 +254,6 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton keluarBtn;
-    private javax.swing.JButton tamabahBtn;
+    private javax.swing.JButton tambahBtn;
     // End of variables declaration//GEN-END:variables
 }
