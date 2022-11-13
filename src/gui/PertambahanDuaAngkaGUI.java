@@ -5,6 +5,7 @@
  */
 package gui;
 
+import static java.time.Clock.system;
 import javax.swing.JOptionPane;
 
 /**
@@ -137,6 +138,11 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
         });
 
         keluarBtn.setText("Keluar");
+        keluarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keluarBtnActionPerformed(evt);
+            }
+        });
 
         tambahBtn.setText("Tambah");
         tambahBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -219,6 +225,11 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
      
      angkaPertamaTF.requestFocus();
     }//GEN-LAST:event_hapusBtnActionPerformed
+
+    private void keluarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarBtnActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_keluarBtnActionPerformed
 
     /**
      * @param args the command line arguments
